@@ -1,41 +1,39 @@
 <div class="group-info">
   <div class="group-title">
     <% if @group.image.attached? %>
-    <%= image_tag @group.image %>
+      <%= image_tag @group.image %>
     <% else %>
-    <p>No image</p>
+      <p>No image</p>
     <% end %>
     <div class="group-details">
       <h1><%= @group.name %></h1>
-      <p>
-        <%= @group.information %>
-      </p>
+      <p><%= @group.information %></p>
       <p>Battling since <%= time_ago_in_words(@group.created_at) %> ago</p>
       <p>
-        <% if @group.group_users.length == 1 %>
+      <% if @group.group_users.length == 1 %>
         <%= @group.group_users.length %> Ally of <%= @group.party_size %>
-        <% else %>
+      <% else %>
         <%= @group.group_users.length %> Allies of <%= @group.party_size %>
-        <% end %>
+      <% end %>
       </p>
       <p>
-        <% if (@group.party_size - @group.group_users.length) == 1 %>
+      <% if (@group.party_size - @group.group_users.length) == 1 %>
         <%= @group.party_size - @group.group_users.length %> Seat available, if you are worthy.
-        <% else %>
+      <% else %>
         <%= @group.party_size - @group.group_users.length %> Seats available, if you are worthy.
-        <% end %>
+      <% end %>
       </p>
       <p>Game Edition: <%= @group.game_edition %></p>
       <% if !@user.nil? && @user.admin? %>
-      <%= link_to 'Delete Group', @group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-group' %>
+        <%= link_to 'Delete Group', @group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-group' %>
       <% end %>
     </div>
   </div>
   
   
     <% if !@user.nil? && (@user.admin? || @user.dm?) %>
-    <div class="new-group-btn">
-      <a class="edit-btn" data-method="get" href="/groups/<%= @group.id %>/edit"><i class="fas fa-edit"></i></a>
-    </div>
+      <div class="new-group-btn">
+        <a class="edit-btn" data-method="get" href="/groups/<%= @group.id %>/edit"><i class="fas fa-edit"></i></a>
+      </div>
     <% end %>
 </div>

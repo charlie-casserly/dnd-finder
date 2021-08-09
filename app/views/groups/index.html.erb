@@ -23,26 +23,24 @@
             <p>Battling since <%= time_ago_in_words(group.created_at) %> ago</p>
             <p>
               <% if group.group_users.length == 1 %>
-              <%= group.group_users.length %> Ally of <%= group.party_size %>
+                <%= group.group_users.length %> Ally of <%= group.party_size %>
               <% else %>
-              <%= group.group_users.length %> Allies of <%= group.party_size %>
+                <%= group.group_users.length %> Allies of <%= group.party_size %>
               <% end %>
             </p>
-              <p>
-                <% if (group.party_size - group.group_users.length) == 1 %>
+            <p>
+              <% if (group.party_size - group.group_users.length) == 1 %>
                 <%= group.party_size - group.group_users.length %> Seat available, if you are worthy.
-                <% else %>
+              <% else %>
                 <%= group.party_size - group.group_users.length %> Seats available, if you are worthy.
-                <% end %>
-              </p>
+              <% end %>
+            </p>
           </div>
-          
         </div>
       <% end %>
     </div>
 
     <div class="new-group-btn">
-      <!-- <%= link_to 'New Group', new_group_path %> -->
       <a class="link_btn" href="/groups/new"><i class="fas fa-users"></i></a>
     </div>
     

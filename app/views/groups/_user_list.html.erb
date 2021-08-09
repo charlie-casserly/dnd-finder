@@ -17,7 +17,7 @@
       <% end %>
     <div class="player-details">
       <% @users.each do |group_user| %>
-      <% if !group_user.admin? && group_user.dm? %>
+        <% if !group_user.admin? && group_user.dm? %>
         <p>
           <%= group_user.user.username %> - <%= group_user.character_name %>, <%= group_user.character_race %>
           <%= group_user.character_class %>
