@@ -10,16 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_21_141413) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 2021_08_09_142415) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -38,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_07_21_141413) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -46,15 +43,15 @@ ActiveRecord::Schema.define(version: 2021_07_21_141413) do
   create_table "comments", force: :cascade do |t|
     t.string "name"
     t.text "body"
-    t.bigint "message_id", null: false
+    t.integer "message_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["message_id"], name: "index_comments_on_message_id"
   end
 
   create_table "game_responds", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "game_id", null: false
+    t.integer "user_id", null: false
+    t.integer "game_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_game_responds_on_game_id"
@@ -64,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_07_21_141413) do
   create_table "games", force: :cascade do |t|
     t.date "date"
     t.time "time"
-    t.bigint "group_id", null: false
+    t.integer "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "name"
@@ -74,8 +71,8 @@ ActiveRecord::Schema.define(version: 2021_07_21_141413) do
   end
 
   create_table "group_users", force: :cascade do |t|
-    t.bigint "group_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "group_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin"
@@ -99,11 +96,11 @@ ActiveRecord::Schema.define(version: 2021_07_21_141413) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.bigint "sender_id", null: false
+    t.integer "sender_id", null: false
     t.boolean "confirmed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "group_id", null: false
+    t.integer "group_id", null: false
     t.text "character_name"
     t.text "character_race"
     t.text "character_class"
@@ -113,12 +110,11 @@ ActiveRecord::Schema.define(version: 2021_07_21_141413) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.bigint "user_id", null: false
-    t.bigint "group_id", null: false
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "games_id"
-    t.index ["games_id"], name: "index_messages_on_games_id"
+    t.integer "game_id"
     t.index ["group_id"], name: "index_messages_on_group_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -154,7 +150,7 @@ ActiveRecord::Schema.define(version: 2021_07_21_141413) do
   add_foreign_key "group_users", "users"
   add_foreign_key "invitations", "groups"
   add_foreign_key "invitations", "users", column: "sender_id"
-  add_foreign_key "messages", "games", column: "games_id"
+  add_foreign_key "messages", "games"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
 end
