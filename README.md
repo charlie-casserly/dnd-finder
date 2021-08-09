@@ -1,7 +1,3 @@
-# Tavern Keepers
-
-You can find our application **[here](https://tavern-keepers.herokuapp.com/)**.
-
 ## Contributors
 
 **[Jenny Bell](https://github.com/jennybell)**
