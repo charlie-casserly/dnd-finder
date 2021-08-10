@@ -1,6 +1,6 @@
 <div class="game-schedule">
   <div class="schedular">
-    <% if !@user.nil? && @user.admin? %>
+    <% if !@group_user.nil? && @group_user.admin? %>
       <%= form_with url: group_games_path(@group), method: 'post' do |f| %>
         <h3>Schedule a Battle</h3>
         <%= f.text_field :name, required: true, placeholder: 'Battle Name', id: 'name' %>
@@ -27,7 +27,7 @@
         <% check_user = game.game_responds.find { |player| player.user.id == current_user.id } %>
         <% if check_user %>
           <p>
-            <a class="not-att" href="/groups/<%= @group.id %>/games/<%= game.id %>/game_responds/<%= @user.id %>" rel="nofollow" data-method="delete"><i class="far fa-thumbs-down"></i> Not Attending</a>
+            <a class="not-att" href="/groups/<%= @group.id %>/games/<%= game.id %>/game_responds/<%= @group_user.id %>" rel="nofollow" data-method="delete"><i class="far fa-thumbs-down"></i> Not Attending</a>
           </p>
         <% else %>
           <p>
@@ -36,7 +36,7 @@
         <% end %>
 
         <p><%= game.game_responds.count %> Attending</p>
-        <% if !game.complete? && @user.admin? %>
+        <% if !game.complete? && @group_user.admin? %>
           <p><%= link_to 'End Session', group_game_path(@group.id, game.id), method: :patch %></p>
         <% end %>
         

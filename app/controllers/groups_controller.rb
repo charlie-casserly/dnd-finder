@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
 
   def show
     group_id = params[:id]
-    @user = GroupUser.find_by(group_id: group_id, user_id: current_user.id)
+    @group_user = GroupUser.find_by(group_id: group_id, user_id: current_user.id)
     @messages = Message.where(group_id: group_id)
     @requests = Invitation.where(group_id: group_id, confirmed: false)
     @users = GroupUser.where(group_id: group_id)

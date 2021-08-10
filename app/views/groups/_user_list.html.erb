@@ -31,7 +31,8 @@
           <% if !group_user.admin? && !group_user.dm? %>
             <%= group_user.user.username %> - <%= group_user.character_name %>, <%= group_user.character_race %>
             <%= group_user.character_class %>
-            <% if !@user.nil? && @user.admin? %>
+        
+            <% if !@group_user.nil? && @group_user.admin? %>
               <%= link_to 'Assign DM', group_dm_path(group_id: @group, user_id: group_user.user.id), method: 'patch', class: 'accept' %>
             <% end %>
           <% end %>

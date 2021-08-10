@@ -1,5 +1,5 @@
 <div class="admin-function">
-  <% if !@user.nil? && @user.admin? %>
+  <% if GroupUser.admin?(@group_user) %>
     <% @requests.each do |request| %>
       <div class="user-request">
         <h1><%= request.sender.username %></h1>
