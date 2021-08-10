@@ -111,7 +111,8 @@ def sign_out
 end
 
 def schedule_game
-  fill_in 'name', with: 'Battle'
+  fill_in 'name', with: 'Battle at Makers'
+  fill_in 'location', with: 'Makers Academy'
   fill_in 'date', with: '24/07/2021'
   fill_in 'time', with: '18:00'
   click_button 'Schedule game'
