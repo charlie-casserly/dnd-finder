@@ -30,7 +30,10 @@ The main technologies used in this project are as follows:
 
 ## Getting started
 
+1. Clone this repo
+1. 
 ```bash
+> cd dnd-finder
 > bundle install
 > bin/rails db:create
 > bin/rails db:migrate
@@ -38,4 +41,3 @@ The main technologies used in this project are as follows:
 > bundle exec rspec # Run the tests
 > bin/rails server # Start the server at localhost:3000
 ```
-You can also visit the site hosted on Heroku in the link at the top of the page
