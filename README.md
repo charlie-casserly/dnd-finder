@@ -37,12 +37,12 @@ cd dnd-finder
 bundle install #installs dependencies
 bin/rails db:migrate #runs database migrations
 ```
-1. Run rails server for application
+3. Run rails server for application
 ```bash
 rails server #
 ```
-1. Visit localhost:3000 in your browser
-1. Create an account and enjoy!
+4. Visit localhost:3000 in your browser
+5. Create an account and enjoy!
 
 Tests run with:
 ```bash
