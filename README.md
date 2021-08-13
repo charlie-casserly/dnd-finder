@@ -37,14 +37,9 @@ cd dnd-finder
 bundle install #installs dependencies
 bin/rails db:migrate #runs database migrations
 ```
-3. Run rails server for application
-```bash
-rails server #
-```
+3. Run rails server: ```bash rails server```
 4. Visit localhost:3000 in your browser
 5. Create an account and enjoy!
 
-Tests run with:
-```bash
-bundle exec rspec
-```
+
+Tests run with: ```bash bundle exec rspec```
