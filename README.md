@@ -30,11 +30,21 @@ The main technologies used in this project are as follows:
 
 ## Getting started
 
-1. Clone this repo
-1. 
+1. Git Clone this repo
+1. Run the following to install application
 ```bash
 cd dnd-finder
-bundle install
-bin/rails db:create
-bin/rails db:migrate
+bundle install #installs dependencies
+bin/rails db:migrate #runs database migrations
+```
+1. Run rails server for application
+```bash
+rails server #
+```
+1. Visit localhost:3000 in your browser
+1. Create an account and enjoy!
+
+Tests run with:
+```bash
+bundle exec rspec
 ```
