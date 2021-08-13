@@ -33,8 +33,8 @@ The main technologies used in this project are as follows:
 1. Clone this repo
 1. 
 ```bash
-> cd dnd-finder
-> bundle install
-> bin/rails db:create
-> bin/rails db:migrate
+cd dnd-finder
+bundle install
+bin/rails db:create
+bin/rails db:migrate
 ```
